@@ -1,13 +1,242 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(100%);
+  }
+
+  50% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.scrolling {
+  animation: scrolling 20s linear infinite;
+}
+
+.bannerImg:hover .Button {
+  opacity: 1;
+}
+
+/* image Display cssText */
+#magnifierImage {
+
+  transform: scale(0.5);
+  transition: transform .5s;
+}
+
+/* This is contact part styling.. */
+.contact {
+
+  width: auto;
+  background-blend-mode: darken;
+  background: rgba(0, 0, 0, 0.704) url('Images/dell-8pb7Hq539Zw-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  opacity: 12px;
+}
+
+/* This is Brand logo move css 1st*/
+.logos-slide {
+  width: max-content;
+  display: inline-flex;
+  animation: 20s slide infinite linear;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 93%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to right, rgb(241 242 240), rgb(255 255 255 / 9%));
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to left, rgb(241 242 240), rgb(255 255 255 / 9%));
+}
+
+
+.logos:hover .logos-slide {
+
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* This is Brand logo move css 2st*/
+.logos-slide-secend {
+  width: max-content;
+  display: inline-flex;
+  animation: 20s slidenext infinite linear;
+}
+
+.logos:hover .logos-slide-secend {
+
+  animation-play-state: paused;
+}
+
+@keyframes slidenext {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+/* This is hero section crasol */
+.fade-in {
+  animation: fadeIn 0.7s;
+}
+
+.fade-out {
+  animation: fadeOut 0.7s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* This is procesing animation............ */
+.loader {
+
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* //////////////////////////// */
+/* This is mouse Click effect transition css Text */
+.cllickEffect {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 100%;
+  background: rgba(165, 165, 165, 0.574);
+  animation-name: wave;
+  animation-duration: 0.6s;
+  animation-timing-function: linear;
+
+}
+
+@keyframes wave {
+
+  0% {
+    transform: scale(0);
+    opacity: 0;
+
+  }
+ 
+  50% {
+    transform: scale(50);
+    opacity: 1;
+
+  }
+
+  100% {
+    transform: scale(100);
+    opacity: 0;
+  }
+
+}
+
+/* This si price Rage some style */
+.range_input input {
+  position: absolute;
+  top: -13px;
+  height: 5px;
+  width: 100%;
+  background: none;
+  appearance: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #0075ff;
+  border: 2px solid rgb(216, 216, 216);
+  -webkit-appearance: none;
+  pointer-events: auto;
+  
+
+
+}
+input[type="range"]::-webkit-slider-thumb:active{
+  border: 5px solid rgb(224, 224, 224);
+  transition: 100ms ease-in-out;
+
+}
+input[type="range"]::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #0075ff;
+  border: 2px solid rgb(216, 216, 216);
+   -moz-appearance: none;
+  pointer-events: auto;
+
+
 }
